@@ -25,7 +25,9 @@ export default function RootLayout({
       <body className={inter.variable} suppressHydrationWarning={true}>
         <Theme appearance="light" accentColor="teal" panelBackground="solid" radius="large" scaling="105%">
           <NavBar />
-          <main className="p-5">{children}</main>
+          <main className="flex justify-center p-5">
+            {children}
+          </main>
           {/* <ThemePanel /> */}
         </Theme>
       </body>
