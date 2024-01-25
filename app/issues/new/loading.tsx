@@ -1,5 +1,3 @@
-import { Box } from '@radix-ui/themes'
-import { Skeleton } from '@/app/components';
 import IssueFormSkeleton from "../_components/IssueFormSkeleton";
 
 

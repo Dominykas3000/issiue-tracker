@@ -11,7 +11,6 @@ const statusMap: Record<
   CLOSED: { label: 'Done', color: 'green' },
 };
 
-
 const IssueStatusBadge = ({ status }: { status: Status }) => {
   return (
     <Badge color={statusMap[status].color}>
