@@ -1,6 +1,7 @@
 import { Button, Flex, Text } from '@radix-ui/themes'
 import { IssueStatusBadge } from './components';
 import prisma from '@/prisma/client';
+import Link from 'next/link';
 
 const DashboardPage = async () => {
   const issuesInProgress = await prisma.issue.findMany({
@@ -15,14 +16,11 @@ const DashboardPage = async () => {
     },
   });
 
-
   const openedIssues = await prisma.issue.findMany({
     where: {
       status: "OPEN",
     },
   });
-
-
 
   return (
     <section className='w-[100%]'>
@@ -44,9 +42,11 @@ const DashboardPage = async () => {
               {openedIssues.length} issues
             </Text>
           </div>
-          <Button style={{ marginLeft: '4px', width: '207px' }} >
-            View All Opened Issues
-          </Button>
+          <Link href='/issues/status/open'>
+            <Button style={{ marginLeft: '4px', width: '207px' }} >
+              View All Opened Issues
+            </Button>
+          </Link>
         </Flex>
 
         <Flex className='w-[100%] flex-row items-center '
@@ -58,9 +58,11 @@ const DashboardPage = async () => {
               {issuesInProgress.length} issues
             </Text>
           </div>
-          <Button style={{ marginLeft: '4px', width: '207px' }} >
-            View All In Progress Issues
-          </Button>
+          <Link href='/issues/status/progress'>
+            <Button style={{ marginLeft: '4px', width: '207px' }} >
+              View All In Progress Issues
+            </Button>
+          </Link>
         </Flex>
 
         <Flex className='w-[100%] flex-row items-center '
@@ -72,9 +74,11 @@ const DashboardPage = async () => {
               {closedIssues.length} issues
             </Text>
           </div>
-          <Button style={{ marginLeft: '4px', width: '207px' }} >
-            View All Closed Issues
-          </Button>
+          <Link href='/issues/status/closed'>
+            <Button style={{ marginLeft: '4px', width: '207px' }} >
+              View All Closed Issues
+            </Button>
+          </Link>
         </Flex>
 
       </Flex>
