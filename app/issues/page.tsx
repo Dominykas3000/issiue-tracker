@@ -28,7 +28,7 @@ const IssuesPage = async () => {
         <Table.Body>
           {issues.map(issue => (
             <Table.Row key={issue.id}>
-              <Table.Cell>
+              <Table.Cell className='w-[50%]'>
                 <Link href={`/issues/${issue.id}`}>
                   {issue.title}
                 </Link>
